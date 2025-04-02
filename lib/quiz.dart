@@ -58,7 +58,7 @@ class _QuizState extends State<Quiz>{
     Widget screenWidget = StartScreen(switchScreen);
 
     if (activeScreen == 'quiz-screen'){
-      screenWidget = QuestionScreen(onSelectAnswer: saveAnswer);
+      screenWidget = QuestionScreen(onSelectAnswer: saveAnswer, onQuit: restartQuiz,);
     } else if(activeScreen == 'result-screen'){
       screenWidget = ResultScreen(chosenAnswers: selectedAnswers, goHomeHandler: restartQuiz,);
     }

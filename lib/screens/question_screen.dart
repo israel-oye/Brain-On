@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:quiz_app/components/answer_button.dart';
+import 'package:quiz_app/components/quit_button.dart';
 import 'package:quiz_app/data/questions.dart';
 import 'package:quiz_app/components/question_summary/question_identifier.dart';
 
 class QuestionScreen extends StatefulWidget {
-  const QuestionScreen({super.key, required this.onSelectAnswer});
+  const QuestionScreen({super.key, required this.onSelectAnswer, required this.onQuit});
 
   final void Function(String answer) onSelectAnswer;
+  final void Function() onQuit;
 
   @override
   State<QuestionScreen> createState() {
@@ -63,6 +65,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                 })
               ],
             ),
+            QuitButton(goHomeHandler: widget.onQuit)
           ],
         ),
       ),
